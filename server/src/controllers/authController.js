@@ -7,7 +7,7 @@ function cookieOptions() {
   return {
     httpOnly: true,
     secure: env.cookieSecure,
-    sameSite: "lax",
+    sameSite: "none",
     maxAge: 2 * 60 * 60 * 1000,
     path: "/"
   };
@@ -38,7 +38,7 @@ export function logout(_req, res) {
   res.clearCookie("admin_token", {
     httpOnly: true,
     secure: env.cookieSecure,
-    sameSite: "lax",
+    sameSite: "none",
     path: "/"
   });
   res.json({ message: "Logged out." });
